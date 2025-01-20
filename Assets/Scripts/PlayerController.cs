@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
-        Jump();d
+        Jump();
 
         partSys.gameObject.SetActive(enableAfterImg);
     }
