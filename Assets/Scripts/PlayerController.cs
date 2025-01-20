@@ -6,15 +6,19 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     PlayerFloorCheck flCheck;
+    ParticleSystem partSys; 
 
     public float walkMod;
     public float jumpMod;
+
+    public bool enableAfterImg;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         flCheck = transform.GetChild(0).GetComponent<PlayerFloorCheck>();
+        partSys = transform.GetChild(1).GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -22,6 +26,8 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Jump();
+
+        partSys.gameObject.SetActive(enableAfterImg);
     }
 
     void Move()
