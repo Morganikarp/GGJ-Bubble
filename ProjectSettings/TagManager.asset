@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Bubble
+=======
+  - Floor
+>>>>>>> 727fb11032b1cdeb7cbcdc3b1e3de0e0d6789110
   layers:
   - Default
   - TransparentFX
