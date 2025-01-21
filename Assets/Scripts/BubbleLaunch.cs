@@ -11,8 +11,11 @@ public class BubbleLaunch : MonoBehaviour
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     // Start is called before the first frame update
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     private float verticalLaunchPower = 50f;
@@ -20,6 +23,9 @@ public class BubbleLaunch : MonoBehaviour
     private float diagonalLaunchPower = 100f;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -27,6 +33,7 @@ public class BubbleLaunch : MonoBehaviour
     {
         colorLaunchProperties = new Dictionary<Color, (Vector3 direction, float force)>
        {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
            { Color.red, (Vector3.left, 10f)},
@@ -57,6 +64,16 @@ public class BubbleLaunch : MonoBehaviour
        };
 
 >>>>>>> Stashed changes
+=======
+           { Color.red, (new Vector3(-1f, 0, 0), horizontalLaunchPower)},
+           { new Color(1, 0.92f, 0.016f), (new Vector3(0, 1f, 0), verticalLaunchPower)},
+           { Color.blue, (new Vector3(1f, 0, 0), horizontalLaunchPower)},
+           { Color.green, (new Vector3(1f, 1f, 0),diagonalLaunchPower)},
+           { new Color (0.5f, 0, 0.5f), (new Vector3(0, -1f, 0), verticalLaunchPower)}, //purple
+           { new Color (1f, 0.647f, 0), (new Vector3(-1f, 1f, 0), diagonalLaunchPower)} //oramge
+       };
+
+>>>>>>> Stashed changes
         BubbleMerge = GetComponent<BubbleMerge>();
 
         Vector3 RespawnPosition = gameObject.transform.position;
@@ -76,7 +93,19 @@ public class BubbleLaunch : MonoBehaviour
                 Vector3 launchDirection = launchProperties.direction;
                 float launchForce;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+
+                if (BubbleMerge.hasMerged == false)
+                {
+                    launchForce = launchProperties.force;
+                }
+                else
+                {
+                    launchForce = launchProperties.force * 2;
+                }
+>>>>>>> Stashed changes
 
                 if (BubbleMerge.hasMerged == false)
                 {
