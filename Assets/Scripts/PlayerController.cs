@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float walkMod;
     public float jumpMod;
 
+    public bool jumpBuffer;
+
     public bool enableAfterImg;
 
     // Start is called before the first frame update
@@ -47,9 +49,33 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && flCheck.touchingFloor)
+
+        if (jumpBuffer && flCheck.touchingFloor)
         {
             rb.AddForce(new Vector2(0, jumpMod), ForceMode2D.Impulse);
+            jumpBuffer = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (!flCheck.touchingFloor)
+            {
+                jumpBuffer = true;
+                StartCoroutine("JumpBufferDelay");
+            }
+
+            else if (flCheck.touchingFloor)
+            {
+                rb.AddForce(new Vector2(0, jumpMod), ForceMode2D.Impulse);
+                jumpBuffer = false;
+            }
+
+        }
+    }
+
+    IEnumerator JumpBufferDelay()
+    {
+        yield return new WaitForSeconds(0.15f);
+        jumpBuffer = false;
     }
 }

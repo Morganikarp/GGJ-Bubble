@@ -36,7 +36,7 @@ public class BubbleLaunch : MonoBehaviour
                 Vector3 launchDirection = launchProperties.direction;
                 float launchForce = launchProperties.force;
 
-                playerRigidBody.velocity = launchDirection * launchForce;
+                playerRigidBody.AddForce(launchDirection * launchForce, ForceMode2D.Impulse);
 
                 //Pop Bubble
                 Destroy(gameObject);

@@ -19,7 +19,13 @@ public class PlayerFloorCheck : MonoBehaviour
     {
         if (other.transform.tag == "Floor")
         {
-            touchingFloor = false;
+            StartCoroutine("JumpBufferDelay");
         }
+    }
+
+    IEnumerator JumpBufferDelay()
+    {
+        yield return new WaitForSeconds(0.05f);
+        touchingFloor = false;
     }
 }

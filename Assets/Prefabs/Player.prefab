@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2574743945213767752}
@@ -48,7 +48,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4841,7 +4841,7 @@ GameObject:
   - component: {fileID: 2574743945213767752}
   - component: {fileID: 3604995796675100479}
   - component: {fileID: 5496026472502524037}
-  - component: {fileID: 3425765139127541879}
+  - component: {fileID: 959611316206033417}
   - component: {fileID: 4309240980490472443}
   m_Layer: 0
   m_Name: Player
@@ -4860,7 +4860,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15.46, y: -8.03, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4330083198246281424}
@@ -4931,11 +4931,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b87710f68207df488386a3dac79c1b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkMod: 10
-  jumpMod: 15
-  enableAfterImg: 0
---- !u!70 &3425765139127541879
-CapsuleCollider2D:
+  walkMod: 15
+  jumpMod: 30
+  jumpBuffer: 0
+  enableAfterImg: 1
+--- !u!58 &959611316206033417
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4967,8 +4968,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
+  serializedVersion: 2
+  m_Radius: 0.49
 --- !u!50 &4309240980490472443
 Rigidbody2D:
   serializedVersion: 4
@@ -4984,8 +4985,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
-  m_Material: {fileID: 0}
+  m_GravityScale: 10
+  m_Material: {fileID: 6200000, guid: b02f9d149ecb42743b126150b13627f0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4994,7 +4995,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &6654753724028969508
 GameObject:
