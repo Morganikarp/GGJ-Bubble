@@ -5,13 +5,23 @@ using UnityEngine;
 
 public class BubbleLaunch : MonoBehaviour
 {
+    BubbleMerge BubbleMerge;
+
     private Dictionary<Color, (Vector3 direction, float force)> colorLaunchProperties;
 
+<<<<<<< Updated upstream
     // Start is called before the first frame update
+=======
+    private float verticalLaunchPower = 50f;
+    private float horizontalLaunchPower = 1000f;
+    private float diagonalLaunchPower = 100f;
+
+>>>>>>> Stashed changes
     void Start()
     {
         colorLaunchProperties = new Dictionary<Color, (Vector3 direction, float force)>
        {
+<<<<<<< Updated upstream
            { Color.red, (Vector3.left, 10f)},
            { Color.yellow, (Vector3.up, 10f)},
            { Color.blue, (Vector3.right, 10f)},
@@ -21,6 +31,19 @@ public class BubbleLaunch : MonoBehaviour
        };
 
         Vector3 RespawnPosition = gameObject.transform.position;    
+=======
+           { Color.red, (new Vector3(-1f, 0, 0), horizontalLaunchPower)},
+           { new Color(1, 0.92f, 0.016f), (new Vector3(0, 1f, 0), verticalLaunchPower)},
+           { Color.blue, (new Vector3(1f, 0, 0), horizontalLaunchPower)},
+           { Color.green, (new Vector3(1f, 1f, 0),diagonalLaunchPower)},
+           { new Color (0.5f, 0, 0.5f), (new Vector3(0, -1f, 0), verticalLaunchPower)}, //purple
+           { new Color (1f, 0.647f, 0), (new Vector3(-1f, 1f, 0), diagonalLaunchPower)} //oramge
+       };
+
+        BubbleMerge = GetComponent<BubbleMerge>();
+
+        Vector3 RespawnPosition = gameObject.transform.position;
+>>>>>>> Stashed changes
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -34,7 +57,16 @@ public class BubbleLaunch : MonoBehaviour
             if (colorLaunchProperties.TryGetValue(bubbleColor, out var launchProperties))
             {
                 Vector3 launchDirection = launchProperties.direction;
-                float launchForce = launchProperties.force;
+                float launchForce;
+
+                if (BubbleMerge.hasMerged == false)
+                {
+                    launchForce = launchProperties.force;
+                }
+                else
+                {
+                    launchForce = launchProperties.force * 2;
+                }
 
                 playerRigidBody.velocity = launchDirection * launchForce;
             }
