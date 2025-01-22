@@ -27,6 +27,9 @@ public class BubbleLaunch : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            // Afterimage activate
+            collision.gameObject.GetComponent<PlayerController>().enableAfterImg = true;
+
             Rigidbody2D playerRigidBody = collision.gameObject.GetComponent<Rigidbody2D>();
             SpriteRenderer bubbleRenderer = GetComponent<SpriteRenderer>();
             Color bubbleColor = bubbleRenderer.color;

@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         flCheck = transform.GetChild(0).GetComponent<PlayerFloorCheck>();
         partSys = transform.GetChild(1).GetComponent<ParticleSystem>();
+
+        enableAfterImg = false;
     }
 
     // Update is called once per frame
@@ -29,7 +31,11 @@ public class PlayerController : MonoBehaviour
         Move();
         Jump();
 
-        partSys.gameObject.SetActive(enableAfterImg);
+        if (enableAfterImg)
+        {
+            enableAfterImg = false;
+            partSys.Play();
+        }
     }
 
     void Move()
@@ -52,6 +58,7 @@ public class PlayerController : MonoBehaviour
 
         if (jumpBuffer && flCheck.touchingFloor)
         {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(new Vector2(0, jumpMod), ForceMode2D.Impulse);
             jumpBuffer = false;
         }
@@ -66,6 +73,7 @@ public class PlayerController : MonoBehaviour
 
             else if (flCheck.touchingFloor)
             {
+                rb.velocity = new Vector2(rb.velocity.x, 0);
                 rb.AddForce(new Vector2(0, jumpMod), ForceMode2D.Impulse);
                 jumpBuffer = false;
             }
