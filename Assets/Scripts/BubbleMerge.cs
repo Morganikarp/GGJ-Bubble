@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BubbleMerge : MonoBehaviour
 {
-    private bool hasMerged = false;
+    public bool hasMerged = false;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bubble") && !hasMerged)
