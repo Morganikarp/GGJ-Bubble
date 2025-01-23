@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
+    Animator ani;
+
     PlayerFloorCheck flCheck;
     ParticleSystem afterImgPartSys;
     GameObject blowerRange;
@@ -24,6 +26,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        ani = GetComponent<Animator>();
+
         flCheck = transform.GetChild(0).GetComponent<PlayerFloorCheck>();
         afterImgPartSys = transform.GetChild(1).GetComponent<ParticleSystem>();
         blowerRange = transform.GetChild(2).gameObject;
@@ -53,13 +57,22 @@ public class PlayerController : MonoBehaviour
     {
         float ContrVal = Input.GetAxisRaw("Horizontal") * walkMod;
 
+        if (ContrVal != 0) { ani.SetBool("walking", true); }
+        else { ani.SetBool("walking", false); }
+
         if (ContrVal != 0)
         {
+            ani.SetBool("walking", true);
             rb.velocity = new Vector2(ContrVal, rb.velocity.y);
+
+            float a = ContrVal < 0 ? -1 : 1;
+            transform.localScale = new Vector2(a , transform.localScale.y);
+
         }
 
         else
         {
+            ani.SetBool("walking", false);
             rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, Time.deltaTime / 0.05f), rb.velocity.y);
         }
     }
@@ -110,11 +123,6 @@ public class PlayerController : MonoBehaviour
         {
             for (int i = 0; i < blowableBubbles.Count; i++)
             {
-                //Rigidbody2D bubbleRB = blowableBubbles[i].GetComponent<Rigidbody2D>();
-                //Vector2 distVect = blowableBubbles[i].transform.position - transform.position;
-                //Vector2 finalVect = new Vector2(0.1f / distVect.x * distVect.normalized.x, 0.1f / distVect.y * distVect.normalized.y);
-                //bubbleRB.AddForce(finalVect, ForceMode2D.Impulse);
-
                 Rigidbody2D bubbleRB = blowableBubbles[i].GetComponent<Rigidbody2D>();
                 Vector2 distVect = (blowableBubbles[i].transform.position - transform.position).normalized;
                 bubbleRB.AddForce(distVect * 0.05f, ForceMode2D.Impulse);
