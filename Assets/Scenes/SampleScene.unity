@@ -2793,6 +2793,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4918383469568789009, guid: 7e0e7e04e11051f4098c100a99240cc3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1187073572, guid: a6a2033e9d2feab49b03e749b05e74e4, type: 3}
     - target: {fileID: 8805721837298312584, guid: 7e0e7e04e11051f4098c100a99240cc3, type: 3}
       propertyPath: m_Name
       value: YellowBubble
@@ -4385,7 +4389,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 1187073572, guid: a6a2033e9d2feab49b03e749b05e74e4, type: 3}
   m_Color: {r: 1, g: 0.92, b: 0.016, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7446,6 +7450,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'BlueBubble '
       objectReference: {fileID: 0}
+    - target: {fileID: 8793876011195930764, guid: c70003948b877c1449a2baf8588b565a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2057028922, guid: a6a2033e9d2feab49b03e749b05e74e4, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7755,6 +7763,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4273665177293849795, guid: 0e1e0c81abff77340af7d0466824f2d7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1630330361, guid: a6a2033e9d2feab49b03e749b05e74e4, type: 3}
     - target: {fileID: 4816248805423884336, guid: 0e1e0c81abff77340af7d0466824f2d7, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -12723,7 +12735,7 @@ PrefabInstance:
     - target: {fileID: 3604995796675100479, guid: 4740545260296114ca53bc672a04092e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d7f9d977574917e46a591b12839dcc4d, type: 3}
+      objectReference: {fileID: 21300000, guid: ab766ae2c526ac64092531bc10396c6c, type: 3}
     - target: {fileID: 6290665373871156489, guid: 4740545260296114ca53bc672a04092e, type: 3}
       propertyPath: m_Name
       value: Player
