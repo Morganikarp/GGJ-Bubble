@@ -28,6 +28,26 @@ public class BubbleBehavior : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "BlowerDetection")
+        {
+            PlayerController pCont = collision.transform.parent.GetComponent<PlayerController>();
+
+            pCont.blowableBubbles.Add(this.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "BlowerDetection")
+        {
+            PlayerController pCont = collision.transform.parent.GetComponent<PlayerController>();
+
+            pCont.blowableBubbles.Remove(this.gameObject);
+        }
+    }
+
     //set bubble to original point
     public void Respawn()
     {

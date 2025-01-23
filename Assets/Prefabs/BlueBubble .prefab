@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1405748980083847211}
   m_Layer: 0
   m_Name: 'BlueBubble '
-  m_TagString: Untagged
+  m_TagString: Bubble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58671426c870f174d9df7c8ec561749a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubbleColor: 0
+  bubbleColor: 1
   initialPosition: {x: 0, y: 0, z: 0}
   isMerged: 0
 --- !u!114 &3985109152955035700
