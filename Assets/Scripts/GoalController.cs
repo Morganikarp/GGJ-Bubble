@@ -17,11 +17,6 @@ public class GoalController : MonoBehaviour
             LeadboardData.leaderboardStats.Add(timerCont.mainTimer);
 
             SceneManager.LoadScene(0);
-
-            //if (LeadboardData.leaderboardStats.Length == LeadboardData.leaderboardStats.
-            //Array.Sort(LeadboardData.leaderboardStats);
-
-            //LeadboardData.leaderboardStats.Append(timerCont.mainTimer);
         }
     }
 }

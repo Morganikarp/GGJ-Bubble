@@ -6,7 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     PlayerFloorCheck flCheck;
-    ParticleSystem partSys; 
+    ParticleSystem afterImgPartSys;
+    GameObject blowerRange;
+    ParticleSystem pushPartSys;
+    ParticleSystem pullPartSys;
 
     public float walkMod;
     public float jumpMod;
@@ -15,14 +18,21 @@ public class PlayerController : MonoBehaviour
 
     public bool enableAfterImg;
 
+    public List<GameObject> blowableBubbles;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         flCheck = transform.GetChild(0).GetComponent<PlayerFloorCheck>();
-        partSys = transform.GetChild(1).GetComponent<ParticleSystem>();
+        afterImgPartSys = transform.GetChild(1).GetComponent<ParticleSystem>();
+        blowerRange = transform.GetChild(2).gameObject;
+        pushPartSys = blowerRange.transform.GetChild(0).GetComponent<ParticleSystem>();
+        pullPartSys = blowerRange.transform.GetChild(1).GetComponent<ParticleSystem>();
 
         enableAfterImg = false;
+
+        blowableBubbles = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -30,11 +40,12 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Jump();
+        Blower();
 
         if (enableAfterImg)
         {
             enableAfterImg = false;
-            partSys.Play();
+            afterImgPartSys.Play();
         }
     }
 
@@ -85,5 +96,52 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.15f);
         jumpBuffer = false;
+    }
+
+    void Blower()
+    {
+
+        Vector3 vectorToTarget = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float angle = -Mathf.Atan2(vectorToTarget.x, vectorToTarget.y) * Mathf.Rad2Deg - 90f;
+        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+        blowerRange.transform.rotation = q;
+
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            for (int i = 0; i < blowableBubbles.Count; i++)
+            {
+                //Rigidbody2D bubbleRB = blowableBubbles[i].GetComponent<Rigidbody2D>();
+                //Vector2 distVect = blowableBubbles[i].transform.position - transform.position;
+                //Vector2 finalVect = new Vector2(0.1f / distVect.x * distVect.normalized.x, 0.1f / distVect.y * distVect.normalized.y);
+                //bubbleRB.AddForce(finalVect, ForceMode2D.Impulse);
+
+                Rigidbody2D bubbleRB = blowableBubbles[i].GetComponent<Rigidbody2D>();
+                Vector2 distVect = (blowableBubbles[i].transform.position - transform.position).normalized;
+                bubbleRB.AddForce(distVect * 0.05f, ForceMode2D.Impulse);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0)) { pushPartSys.Play(); }
+        if (Input.GetKeyUp(KeyCode.Mouse0)) { pushPartSys.Stop(); }
+
+        else if (Input.GetKey(KeyCode.Mouse1))
+        {
+            pushPartSys.Stop();
+            for (int i = 0; i < blowableBubbles.Count; i++)
+            {
+                Rigidbody2D bubbleRB = blowableBubbles[i].GetComponent<Rigidbody2D>();
+                Vector2 distVect = (transform.position - blowableBubbles[i].transform.position).normalized;
+                bubbleRB.AddForce(distVect * 0.05f, ForceMode2D.Impulse);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1)) { pullPartSys.Play(); }
+        if (Input.GetKeyUp(KeyCode.Mouse1)) { pullPartSys.Stop(); }
+
+        //else
+        //{
+        //    pushPartSys.Stop();
+        //    pullPartSys.Stop();
+        //}
     }
 }
