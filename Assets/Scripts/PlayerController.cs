@@ -67,7 +67,6 @@ public class PlayerController : MonoBehaviour
 
             float a = ContrVal < 0 ? -1 : 1;
             transform.localScale = new Vector2(a , transform.localScale.y);
-
         }
 
         else
@@ -113,11 +112,20 @@ public class PlayerController : MonoBehaviour
 
     void Blower()
     {
+        float adjustmentAngle = transform.localScale.x < 0 ? 90 : -90;
 
         Vector3 vectorToTarget = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float angle = -Mathf.Atan2(vectorToTarget.x, vectorToTarget.y) * Mathf.Rad2Deg - 90f;
+        float angle = -Mathf.Atan2(vectorToTarget.x, vectorToTarget.y) * Mathf.Rad2Deg + adjustmentAngle;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         blowerRange.transform.rotation = q;
+        pushPartSys.transform.rotation = q;
+        pullPartSys.transform.rotation = q;
+
+        if (transform.localScale.x < 0)
+        {
+            pushPartSys.transform.eulerAngles += new Vector3(0, 0, 180);
+            pullPartSys.transform.eulerAngles += new Vector3(0, 0, 180);
+        }
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
@@ -145,11 +153,5 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1)) { pullPartSys.Play(); }
         if (Input.GetKeyUp(KeyCode.Mouse1)) { pullPartSys.Stop(); }
-
-        //else
-        //{
-        //    pushPartSys.Stop();
-        //    pullPartSys.Stop();
-        //}
     }
 }

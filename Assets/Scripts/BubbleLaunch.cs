@@ -28,8 +28,9 @@ public class BubbleLaunch : MonoBehaviour
             }
             else
             {
-                gameObject.SetActive(false);
-                BubbleBehavior.Respawn();
+                Destroy(this.gameObject);
+                //gameObject.SetActive(false);
+                //BubbleBehavior.Respawn();
             }
         }
     }

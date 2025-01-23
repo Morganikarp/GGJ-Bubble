@@ -108,7 +108,7 @@ public class BubbleBehavior : MonoBehaviour
         foreach(GameObject bubble in mergedBubbles)
         {
             BubbleBehavior behavior = bubble.GetComponent<BubbleBehavior>();
-            behavior.Respawn();
+            //behavior.Respawn();
         }
 
         Destroy(mergedBubble);
