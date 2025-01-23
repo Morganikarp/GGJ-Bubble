@@ -6,7 +6,8 @@ using TMPro;
 public class TimerController : MonoBehaviour
 {
     TextMeshProUGUI TMPro;
-    public bool startTimer;
+
+    public bool gameOn;
 
     public float mainTimer;
     int secTimer;
@@ -16,12 +17,14 @@ public class TimerController : MonoBehaviour
     void Start()
     {
         TMPro = GetComponent<TextMeshProUGUI>();
+
+        gameOn = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (startTimer)
+        if (gameOn)
         {
             mainTimer += Time.deltaTime;
 

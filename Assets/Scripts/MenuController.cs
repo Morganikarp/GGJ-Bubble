@@ -5,18 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Animator sceneTransAni;
+    private void Start()
     {
-        
+        sceneTransAni.SetTrigger("SceneBegin");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene(1);
+            StartCoroutine("sceneTrans");
         }
+    }
+
+    IEnumerator sceneTrans()
+    {
+        sceneTransAni.SetTrigger("SceneEnd");
+        yield return new WaitForSeconds(0.8f);
+        SceneManager.LoadScene(1);
     }
 }

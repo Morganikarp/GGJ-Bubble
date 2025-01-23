@@ -10,6 +10,8 @@ public class BubbleLaunch : MonoBehaviour
     private float verticalLaunchPower = 50f;
     private float diagonalLaunchPower = 50f;
 
+    public BubbleSpawnerController BubbleSpawner;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -28,6 +30,7 @@ public class BubbleLaunch : MonoBehaviour
             }
             else
             {
+                BubbleSpawner.spawnTrigger = true;
                 Destroy(this.gameObject);
                 //gameObject.SetActive(false);
                 //BubbleBehavior.Respawn();

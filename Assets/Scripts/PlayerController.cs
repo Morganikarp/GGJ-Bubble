@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     ParticleSystem pushPartSys;
     ParticleSystem pullPartSys;
 
+    public bool gameOn;
+
     public float walkMod;
     public float jumpMod;
 
@@ -34,6 +36,8 @@ public class PlayerController : MonoBehaviour
         pushPartSys = blowerRange.transform.GetChild(0).GetComponent<ParticleSystem>();
         pullPartSys = blowerRange.transform.GetChild(1).GetComponent<ParticleSystem>();
 
+        gameOn = false;
+
         enableAfterImg = false;
 
         blowableBubbles = new List<GameObject>();
@@ -42,14 +46,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
-        Jump();
-        Blower();
-
-        if (enableAfterImg)
+        if (gameOn)
         {
-            enableAfterImg = false;
-            afterImgPartSys.Play();
+            Move();
+            Jump();
+            Blower();
+
+            if (enableAfterImg)
+            {
+                enableAfterImg = false;
+                afterImgPartSys.Play();
+            }
         }
     }
 

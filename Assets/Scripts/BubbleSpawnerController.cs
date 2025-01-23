@@ -5,25 +5,18 @@ using UnityEngine;
 public class BubbleSpawnerController : MonoBehaviour
 {
     public GameObject bubblePrefab;
-    GameObject myBubble;
+    public GameObject myBubble;
 
-    bool spawnTrigger;
+    public bool spawnTrigger;
 
     void Start()
     {
         spawnTrigger = false;
-        myBubble = Instantiate(bubblePrefab);
-        myBubble.transform.position = transform.position;
+        SpawnBubble();
     }
 
     void Update()
     {
-        if (myBubble == null)
-        {
-            spawnTrigger = true;
-            myBubble = bubblePrefab;
-        }
-
         if (spawnTrigger)
         {
             spawnTrigger = false;
@@ -34,12 +27,13 @@ public class BubbleSpawnerController : MonoBehaviour
     IEnumerator spawnDelay()
     {
         yield return new WaitForSeconds(3f);
-        spawnBubble();
+        SpawnBubble();
     }
 
-    void spawnBubble()
+    void SpawnBubble()
     {
-        Instantiate(myBubble);
+        myBubble = Instantiate(bubblePrefab);
+        myBubble.GetComponent<BubbleLaunch>().BubbleSpawner = this;
         myBubble.transform.position = transform.position;
     }
 }
