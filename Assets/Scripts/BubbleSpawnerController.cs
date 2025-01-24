@@ -14,6 +14,7 @@ public class BubbleSpawnerController : MonoBehaviour
 
     void Start()
     {
+        resetCountdown = resetTimer;
         spawnTrigger = false;
         SpawnBubble();
     }

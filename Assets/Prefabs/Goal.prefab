@@ -102,6 +102,7 @@ MonoBehaviour:
   pCont: {fileID: 0}
   sceneTransAni: {fileID: 0}
   timerCont: {fileID: 0}
+  resetTimer: 5
 --- !u!61 &1590116750097949541
 BoxCollider2D:
   m_ObjectHideFlags: 0

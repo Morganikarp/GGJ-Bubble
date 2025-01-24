@@ -11,9 +11,32 @@ public class GoalController : MonoBehaviour
     public Animator sceneTransAni;
     public TimerController timerCont;
 
+    public float resetTimer;
+    float resetCountdown;
+
     private void Start()
     {
+        resetCountdown = resetTimer;
         StartCoroutine("sceneStart");
+    }
+
+    void Update()
+    {
+
+        if (Input.GetKey(KeyCode.F))
+        {
+            resetCountdown -= Time.deltaTime;
+        }
+
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            resetCountdown = resetTimer;
+        }
+
+        if (resetCountdown <= 0)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
