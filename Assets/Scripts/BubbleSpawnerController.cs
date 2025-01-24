@@ -9,6 +9,9 @@ public class BubbleSpawnerController : MonoBehaviour
 
     public bool spawnTrigger;
 
+    public float resetTimer;
+    float resetCountdown;
+
     void Start()
     {
         spawnTrigger = false;
@@ -21,6 +24,23 @@ public class BubbleSpawnerController : MonoBehaviour
         {
             spawnTrigger = false;
             StartCoroutine("spawnDelay");
+        }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            resetCountdown -= Time.deltaTime;
+        }
+
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            resetCountdown = resetTimer;
+        }
+
+        if (resetCountdown <= 0)
+        {
+            resetCountdown = resetTimer;
+            Destroy(myBubble);
+            SpawnBubble();
         }
     }
 

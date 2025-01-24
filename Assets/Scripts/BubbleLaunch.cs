@@ -21,12 +21,13 @@ public class BubbleLaunch : MonoBehaviour
 
             BubbleThing(BubbleBehavior.bubbleColor);
             playerRigidBody.AddForce(launchDirection * launchForce, ForceMode2D.Impulse);
+            collision.gameObject.GetComponent<PlayerController>().enableAfterImg = true;
 
             //Pop Bubble
             //Trigger bubble Respawn
             if (BubbleBehavior.isMerged == true)
             {
-                BubbleBehavior.PopMergedBubble(gameObject);
+                //BubbleBehavior.PopMergedBubble(gameObject);
             }
             else
             {

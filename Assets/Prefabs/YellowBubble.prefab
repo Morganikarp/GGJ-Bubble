@@ -103,6 +103,7 @@ MonoBehaviour:
   bubbleColor: 2
   initialPosition: {x: 0, y: 0, z: 0}
   isMerged: 0
+  resetTimer: 3
 --- !u!114 &1091739545472838946
 MonoBehaviour:
   m_ObjectHideFlags: 0

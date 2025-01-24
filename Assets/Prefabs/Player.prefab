@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2574743945213767752}
@@ -14599,6 +14599,8 @@ MonoBehaviour:
   jumpBuffer: 0
   enableAfterImg: 1
   blowableBubbles: []
+  resetTimer: 3
+  resetTrigger: 0
 --- !u!70 &2152884344095874864
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

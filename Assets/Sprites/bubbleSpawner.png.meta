@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ccbaee5d10a01304984e155069ac8595
+guid: 9c006309fdfcb6e4e8e4e30208ac7288
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 250
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,133 +134,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: sprite sheet jump_0
-      rect:
-        serializedVersion: 2
-        x: 585
-        y: 105
-        width: 447
-        height: 726
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a464053f29289445a4bd43315539a4e
-      internalID: 963427686
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite sheet jump_1
-      rect:
-        serializedVersion: 2
-        x: 1252
-        y: 201
-        width: 437
-        height: 698
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 82e6bb3860192e64d967d6251b00e785
-      internalID: 931013150
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite sheet jump_2
-      rect:
-        serializedVersion: 2
-        x: 1862
-        y: 205
-        width: 440
-        height: 740
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 36273bde06af6ed4faca42de22ff3eb9
-      internalID: -1215807578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite sheet jump_3
-      rect:
-        serializedVersion: 2
-        x: 2494
-        y: 90
-        width: 435
-        height: 639
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3df2f4b4870e6cc46976b26e920a3be0
-      internalID: 1164517304
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite sheet jump_4
-      rect:
-        serializedVersion: 2
-        x: 2778
-        y: 728
-        width: 11
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 465a7c6fbb83fa845a3d2743f5fbf20b
-      internalID: -1528365999
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite sheet jump_5
-      rect:
-        serializedVersion: 2
-        x: 3126
-        y: 82
-        width: 308
-        height: 733
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ec69d0defb8b7d4b9098001174e0cd0
-      internalID: 299674640
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -271,13 +145,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      sprite sheet jump_0: 963427686
-      sprite sheet jump_1: 931013150
-      sprite sheet jump_2: -1215807578
-      sprite sheet jump_3: 1164517304
-      sprite sheet jump_4: -1528365999
-      sprite sheet jump_5: 299674640
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

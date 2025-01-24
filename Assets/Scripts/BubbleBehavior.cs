@@ -19,13 +19,13 @@ public class BubbleBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bubble") && !isMerged && !collision.gameObject.GetComponent<BubbleBehavior>().isMerged)
-        {
-            BubbleBehavior otherBubble = collision.gameObject.GetComponent<BubbleBehavior>();
-            BubbleColor newColor = MergedColor(this.bubbleColor, otherBubble.bubbleColor);
+        //if (collision.gameObject.CompareTag("Bubble") && !isMerged && !collision.gameObject.GetComponent<BubbleBehavior>().isMerged)
+        //{
+        //    BubbleBehavior otherBubble = collision.gameObject.GetComponent<BubbleBehavior>();
+        //    BubbleColor newColor = MergedColor(this.bubbleColor, otherBubble.bubbleColor);
 
-            MergeBubbles(collision.gameObject, newColor);
-        }
+        //    MergeBubbles(collision.gameObject, newColor);
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,62 +56,62 @@ public class BubbleBehavior : MonoBehaviour
         isMerged = false;
     }
 
-    private void MergeBubbles(GameObject otherBubble, BubbleColor newColor)
-    {
-        //Disable Primary Bubbles
-        gameObject.SetActive(false);
-        otherBubble.SetActive(false);
+    //private void MergeBubbles(GameObject otherBubble, BubbleColor newColor)
+    //{
+    //    //Disable Primary Bubbles
+    //    gameObject.SetActive(false);
+    //    otherBubble.SetActive(false);
 
-        //Merge Bubble
-        Vector3 mergedPosition = (transform.position + otherBubble.transform.position)/2;
-        GameObject mergedBubble = Instantiate(Resources.Load<GameObject>("MergedBubblePrefab"), mergedPosition, Quaternion.identity);
+    //    //Merge Bubble
+    //    Vector3 mergedPosition = (transform.position + otherBubble.transform.position)/2;
+    //    GameObject mergedBubble = Instantiate(Resources.Load<GameObject>("MergedBubblePrefab"), mergedPosition, Quaternion.identity);
 
-        //Assign Color
-        BubbleBehavior mergedBehavior = mergedBubble.GetComponent<BubbleBehavior>();
-        mergedBehavior.bubbleColor = newColor;
+    //    //Assign Color
+    //    BubbleBehavior mergedBehavior = mergedBubble.GetComponent<BubbleBehavior>();
+    //    mergedBehavior.bubbleColor = newColor;
 
-        //Change Sprite Based on Color
+    //    //Change Sprite Based on Color
 
-        //track original bubbles position
-        mergedBubbles.Add(gameObject);
-        mergedBubbles.Add(otherBubble);
+    //    //track original bubbles position
+    //    mergedBubbles.Add(gameObject);
+    //    mergedBubbles.Add(otherBubble);
 
-        isMerged = true;
-        otherBubble.GetComponent<BubbleBehavior>().isMerged = isMerged = true;
-    }
+    //    isMerged = true;
+    //    otherBubble.GetComponent<BubbleBehavior>().isMerged = isMerged = true;
+    //}
 
-    private BubbleColor MergedColor(BubbleColor color1, BubbleColor color2)
-    {
-        if(color1 == color2)
-        {
-            return color1;
-        }
+    //private BubbleColor MergedColor(BubbleColor color1, BubbleColor color2)
+    //{
+    //    if(color1 == color2)
+    //    {
+    //        return color1;
+    //    }
 
-        if(color1 == BubbleColor.Red &&  color2 == BubbleColor.Blue)
-        {
-            return BubbleColor.Purple;
-        }
-        else if(color1 == BubbleColor.Yellow && color2 == BubbleColor.Blue)
-        {
-            return BubbleColor.Green;
-        }
-        else if(color1 == BubbleColor.Red && color2 == BubbleColor.Yellow)
-        {
-            return BubbleColor.Orange;
-        }
+    //    if(color1 == BubbleColor.Red &&  color2 == BubbleColor.Blue)
+    //    {
+    //        return BubbleColor.Purple;
+    //    }
+    //    else if(color1 == BubbleColor.Yellow && color2 == BubbleColor.Blue)
+    //    {
+    //        return BubbleColor.Green;
+    //    }
+    //    else if(color1 == BubbleColor.Red && color2 == BubbleColor.Yellow)
+    //    {
+    //        return BubbleColor.Orange;
+    //    }
 
-        return color1;
-    }
+    //    return color1;
+    //}
 
-    public void PopMergedBubble(GameObject mergedBubble)
-    {
-        foreach(GameObject bubble in mergedBubbles)
-        {
-            BubbleBehavior behavior = bubble.GetComponent<BubbleBehavior>();
-            //behavior.Respawn();
-        }
+    //public void PopMergedBubble(GameObject mergedBubble)
+    //{
+    //    foreach(GameObject bubble in mergedBubbles)
+    //    {
+    //        BubbleBehavior behavior = bubble.GetComponent<BubbleBehavior>();
+    //        //behavior.Respawn();
+    //    }
 
-        Destroy(mergedBubble);
-        mergedBubbles.Clear();
-    }
+    //    Destroy(mergedBubble);
+    //    mergedBubbles.Clear();
+    //}
 }

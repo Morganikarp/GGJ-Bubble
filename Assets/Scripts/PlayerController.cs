@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
 
             float a = ContrVal < 0 ? -1 : 1;
             transform.localScale = new Vector2(a , transform.localScale.y);
+            //afterImgPartSys.transform.localScale = new Vector3(a*2 , afterImgPartSys.transform.localScale.y, 1);
         }
 
         else
@@ -108,6 +109,16 @@ public class PlayerController : MonoBehaviour
                 jumpBuffer = false;
             }
 
+        }
+
+        if (!flCheck.touchingFloor)
+        {
+            ani.SetBool("jump", true);
+        }
+
+        else if (flCheck.touchingFloor)
+        {
+            ani.SetBool("jump", false);
         }
     }
 

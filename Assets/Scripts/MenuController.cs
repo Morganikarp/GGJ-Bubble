@@ -22,7 +22,7 @@ public class MenuController : MonoBehaviour
     IEnumerator sceneTrans()
     {
         sceneTransAni.SetTrigger("SceneEnd");
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(1);
     }
 }
